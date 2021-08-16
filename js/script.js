@@ -6,18 +6,19 @@ $(document).ready(function(){
       }, 500);
   });
 
+  // SCROLL AND NAV
   $(window).scroll(function () {
     if( this.scrollY > this.innerHeight / 2 ){
         // $(".header").css('background','transparent');
       $(".bg-change").addClass('bg-transparent');
       $("nav").addClass("sticky");
-      $(".logo img").attr('src', "assets/img/CJ.png");
+      // $(".logo img").attr('src', "assets/img/CJ.png");
     }
     else{
       // $(".header").css('background','black');
       $(".bg-change").removeClass('bg-transparent');
       $("nav").removeClass("sticky");
-      $(".logo img").attr('src', "assets/img/CJ-2.png");
+      // $(".logo img").attr('src', "assets/img/CJ-2.png");
     }
 
   });
@@ -44,6 +45,17 @@ $(document).ready(function(){
       
   });
 
+
+  // ABOUT TABS
+  $(".tab-item").on("click", function(e) {
+    $(".tab-item").not(this).removeClass('active');
+    $(this).addClass('active');
+    var id = $(this).attr("data-target")
+
+    $(".tab-content.active").removeClass("active");
+    $(id).addClass("active");
+    
+  });
 
 
 });
